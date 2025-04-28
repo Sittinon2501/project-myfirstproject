@@ -17,7 +17,8 @@ import { HouseModule } from './house/house.module';
         process.env.NODE_ENV === 'production'
           ? [__dirname + '/**/*.entity.js']
           : [__dirname + '/**/*.entity.ts'],
-      synchronize: false,
+      synchronize: true,
+      logging: true,
     }),
     HouseModule,
   ],
