@@ -13,8 +13,11 @@ import { HouseModule } from './house/house.module';
       username: 'root',
       password: 'root',
       database: 'house',
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: true,
+      entities:
+        process.env.NODE_ENV === 'production'
+          ? [__dirname + '/**/*.entity.js']
+          : [__dirname + '/**/*.entity.ts'],
+      synchronize: false,
     }),
     HouseModule,
   ],
